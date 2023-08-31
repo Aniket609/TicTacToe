@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Welcome to Tic-Tac-Toe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/guide"
+        android:layout_width="370dp"
+        android:layout_height="340dp"
+        android:layout_marginTop="16dp"
+        android:text='1. Player1 is assigned "X".\n 2. Player2 is assigned "0". \n 3. One box can be filled only once. \n 4. Each player gets their turns in alternate. \n 5. First player to get 3 cells of his/her sign horizontally/vertically/diagonally wins \n 6. You can assign player names below \n 7. For single player, only Player1 name(if any) will be used,'
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome" />
+
+    <EditText
+        android:id="@+id/p1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Player1 Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/guide"
+        app:layout_constraintStart_toStartOf="@+id/guide"
+        app:layout_constraintTop_toBottomOf="@+id/guide" />
+
+    <EditText
+        android:id="@+id/p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Player2 Name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/p1"
+        app:layout_constraintTop_toBottomOf="@+id/p1" />
+
+    <Button
+        android:id="@+id/multi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Multiplayer"
+        app:layout_constraintEnd_toEndOf="@+id/p2"
+        app:layout_constraintStart_toStartOf="@+id/p2"
+        app:layout_constraintTop_toBottomOf="@+id/p2" />
+
+    <Button
+        android:id="@+id/single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Single Player"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/multi" />
+</androidx.constraintlayout.widget.ConstraintLayout>

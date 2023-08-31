@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/cong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Congratulations!"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/winner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/cong"
+        app:layout_constraintStart_toStartOf="@+id/cong"
+        app:layout_constraintTop_toBottomOf="@+id/cong" />
+
+    <Button
+        android:id="@+id/multiP1First"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Player1 moves First"
+        app:layout_constraintEnd_toEndOf="@+id/cong"
+        app:layout_constraintStart_toStartOf="@+id/cong"
+        app:layout_constraintTop_toBottomOf="@+id/multiplay" />
+
+    <Button
+        android:id="@+id/multiP2first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Player 2 Moves First"
+        app:layout_constraintEnd_toEndOf="@+id/multiP1First"
+        app:layout_constraintStart_toStartOf="@+id/multiP1First"
+        app:layout_constraintTop_toBottomOf="@+id/multiP1First" />
+
+    <Button
+        android:id="@+id/single_play1st"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="As Player1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singlePlay" />
+
+    <Button
+        android:id="@+id/single_play2nd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="As Player2"
+        app:layout_constraintEnd_toEndOf="@+id/single_play1st"
+        app:layout_constraintStart_toStartOf="@+id/single_play1st"
+        app:layout_constraintTop_toBottomOf="@+id/single_play1st" />
+
+    <TextView
+        android:id="@+id/multiplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"
+        android:text="Play MultiPlayer Mode with-"
+        app:layout_constraintStart_toStartOf="@+id/cong"
+        app:layout_constraintTop_toBottomOf="@+id/winner" />
+
+    <TextView
+        android:id="@+id/singlePlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:text="For Single Player Mode:"
+        app:layout_constraintStart_toStartOf="@+id/multiplay"
+        app:layout_constraintTop_toBottomOf="@+id/multiP2first" />
+</androidx.constraintlayout.widget.ConstraintLayout>
