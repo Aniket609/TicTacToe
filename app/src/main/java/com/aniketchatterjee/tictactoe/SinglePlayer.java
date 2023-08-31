@@ -48,7 +48,6 @@ public class SinglePlayer extends AppCompatActivity {
         player1 = getIntent().getStringExtra("p1");
         player2 = "System";
         mode = getIntent().getStringExtra("mode").equals("1st") ? 0 : 1;
-        resetGameState();
         if (mode == 0) {
             turn.setText(("It's " + player1 + "'s turn"));
         } else {
@@ -331,16 +330,5 @@ public class SinglePlayer extends AppCompatActivity {
             winner();
         }
         turn();
-    }
-
-    private void resetGameState() {
-        // Clear the game array
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                game[i][j] = 0;
-            }
-        }
-        count = 0;
-        status = true;
     }
 }
