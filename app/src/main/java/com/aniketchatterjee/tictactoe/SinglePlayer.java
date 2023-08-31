@@ -8,8 +8,6 @@ import java.util.Random;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Random;
-
 public class SinglePlayer extends AppCompatActivity {
     int[][] game = new int[][]{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
     TextView[][] pos;
@@ -18,15 +16,15 @@ public class SinglePlayer extends AppCompatActivity {
     int count = 0;
     int mode;
     TextView turn;
-    TextView cell1;
-    TextView cell2;
-    TextView cell3;
-    TextView cell4;
-    TextView cell5;
-    TextView cell6;
-    TextView cell7;
-    TextView cell8;
-    TextView cell9;
+    TextView SingleCell1;
+    TextView SingleCell2;
+    TextView SingleCell3;
+    TextView SingleCell4;
+    TextView SingleCell5;
+    TextView SingleCell6;
+    TextView SingleCell7;
+    TextView SingleCell8;
+    TextView SingleCell9;
     boolean status = true;
 
 
@@ -35,15 +33,15 @@ public class SinglePlayer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        cell1 = findViewById(R.id.cell_1);
-        cell2 = findViewById(R.id.cell_2);
-        cell3 = findViewById(R.id.cell_3);
-        cell4 = findViewById(R.id.cell_4);
-        cell5 = findViewById(R.id.cell_5);
-        cell6 = findViewById(R.id.cell_6);
-        cell7 = findViewById(R.id.cell_7);
-        cell8 = findViewById(R.id.cell_8);
-        cell9 = findViewById(R.id.cell_9);
+        SingleCell1 = findViewById(R.id.cell_1);
+        SingleCell2 = findViewById(R.id.cell_2);
+        SingleCell3 = findViewById(R.id.cell_3);
+        SingleCell4 = findViewById(R.id.cell_4);
+        SingleCell5 = findViewById(R.id.cell_5);
+        SingleCell6 = findViewById(R.id.cell_6);
+        SingleCell7 = findViewById(R.id.cell_7);
+        SingleCell8 = findViewById(R.id.cell_8);
+        SingleCell9 = findViewById(R.id.cell_9);
         turn = findViewById(R.id.turn);
         player1 = getIntent().getStringExtra("p1");
         player2 = "System";
@@ -54,97 +52,97 @@ public class SinglePlayer extends AppCompatActivity {
             turn.setText(("It's " + player2 + "'s turn"));
         }
 
-        pos = new TextView[][]{{cell1, cell2, cell3}, {cell4, cell5, cell6}, {cell7, cell8, cell9}};
+        pos = new TextView[][]{{SingleCell1, SingleCell2, SingleCell3}, {SingleCell4, SingleCell5, SingleCell6}, {SingleCell7, SingleCell8, SingleCell9}};
         if (mode == 1) {
             autoplay(2);
         }
-        cell1.setOnClickListener(new View.OnClickListener() {
+        SingleCell1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (game[0][0] == 0) {
                     game[0][0] = 1;
-                    cell1.setText("X");
+                    SingleCell1.setText("X");
                     next();
                 }
             }
         });
-        cell2.setOnClickListener(new View.OnClickListener() {
+        SingleCell2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (game[0][1] == 0) {
                     game[0][1] = 1;
-                    cell2.setText("X");
+                    SingleCell2.setText("X");
                     next();
                 }
             }
         });
-        cell3.setOnClickListener(new View.OnClickListener() {
+        SingleCell3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (game[0][2] == 0) {
                     game[0][2] = 1;
-                    cell3.setText("X");
+                    SingleCell3.setText("X");
                     next();
                 }
             }
         });
-        cell4.setOnClickListener(new View.OnClickListener() {
+        SingleCell4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (game[1][0] == 0) {
                     game[1][0] = 1;
-                    cell4.setText("X");
+                    SingleCell4.setText("X");
                     next();
                 }
             }
         });
-        cell5.setOnClickListener(new View.OnClickListener() {
+        SingleCell5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (game[1][1] == 0) {
                     game[1][1] = 1;
-                    cell5.setText("X");
+                    SingleCell5.setText("X");
                     next();
                 }
             }
         });
-        cell6.setOnClickListener(new View.OnClickListener() {
+        SingleCell6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (game[1][2] == 0) {
                     game[1][2] = 1;
-                    cell6.setText("X");
+                    SingleCell6.setText("X");
                     next();
                 }
             }
         });
-        cell7.setOnClickListener(new View.OnClickListener() {
+        SingleCell7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (game[2][0] == 0) {
                     game[2][0] = 1;
-                    cell7.setText("X");
+                    SingleCell7.setText("X");
                     next();
                 }
 
             }
         });
-        cell8.setOnClickListener(new View.OnClickListener() {
+        SingleCell8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (game[2][1] == 0) {
                     game[2][1] = 1;
-                    cell8.setText("X");
+                    SingleCell8.setText("X");
                     next();
                 }
             }
         });
-        cell9.setOnClickListener(new View.OnClickListener() {
+        SingleCell9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (game[2][2] == 0) {
                     game[2][2] = 1;
-                    cell9.setText("X");
+                    SingleCell9.setText("X");
                     next();
                 }
             }
@@ -206,99 +204,99 @@ public class SinglePlayer extends AppCompatActivity {
 
     public void autoplay(int i) {
         if ((game[0][0] == 0) && (game[0][1] == i) && (game[0][2] == i)) {
-            cell1.setText("O");
+            SingleCell1.setText("O");
             game[0][0] = 2;
             autoNext();
         } else if ((game[0][0] == i) && (game[0][1] == 0) && (game[0][2] == i)) {
-            cell2.setText("O");
+            SingleCell2.setText("O");
             game[0][1] = 2;
             autoNext();
         } else if ((game[0][0] == i) && (game[0][1] == i) && (game[0][2] == 0)) {
-            cell3.setText("O");
+            SingleCell3.setText("O");
             game[0][2] = 2;
             autoNext();
         } else if ((game[1][0] == 0) && (game[1][1] == i) && (game[1][2] == i)) {
-            cell4.setText("O");
+            SingleCell4.setText("O");
             game[1][0] = 2;
             autoNext();
         } else if ((game[1][0] == i) && (game[1][1] == 0) && (game[1][2] == i)) {
-            cell5.setText("O");
+            SingleCell5.setText("O");
             game[1][1] = 2;
             autoNext();
         } else if ((game[1][0] == i) && (game[1][1] == i) && (game[1][2] == 0)) {
-            cell6.setText("O");
+            SingleCell6.setText("O");
             game[1][2] = 2;
             autoNext();
         } else if ((game[2][0] == 0) && (game[2][1] == i) && (game[2][2] == i)) {
-            cell7.setText("O");
+            SingleCell7.setText("O");
             game[2][0] = 2;
             autoNext();
         } else if ((game[2][0] == i) && (game[2][1] == 0) && (game[2][2] == i)) {
-            cell8.setText("O");
+            SingleCell8.setText("O");
             game[2][1] = 2;
             autoNext();
         } else if ((game[2][0] == i) && (game[2][1] == i) && (game[2][2] == 0)) {
-            cell9.setText("O");
+            SingleCell9.setText("O");
             game[2][2] = 2;
             autoNext();
         } else if ((game[0][0] == 0) && (game[1][0] == i) && (game[2][0] == i)) {
-            cell1.setText("O");
+            SingleCell1.setText("O");
             game[0][0] = 2;
             autoNext();
         } else if ((game[0][0] == i) && (game[1][0] == 0) && (game[2][0] == i)) {
-            cell4.setText("O");
+            SingleCell4.setText("O");
             game[1][0] = 2;
             autoNext();
         } else if ((game[0][0] == i) && (game[1][0] == i) && (game[2][0] == 0)) {
-            cell7.setText("O");
+            SingleCell7.setText("O");
             game[2][0] = 2;
             autoNext();
         } else if ((game[0][1] == 0) && (game[1][1] == i) && (game[2][1] == i)) {
-            cell2.setText("O");
+            SingleCell2.setText("O");
             game[0][1] = 2;
             autoNext();
         } else if ((game[0][1] == i) && (game[1][1] == 0) && (game[2][1] == i)) {
-            cell5.setText("O");
+            SingleCell5.setText("O");
             game[1][1] = 2;
             autoNext();
         } else if ((game[0][1] == i) && (game[1][1] == i) && (game[2][1] == 0)) {
-            cell8.setText("O");
+            SingleCell8.setText("O");
             game[2][1] = 2;
             autoNext();
         } else if ((game[0][2] == 0) && (game[1][2] == i) && (game[2][2] == i)) {
-            cell3.setText("O");
+            SingleCell3.setText("O");
             game[0][2] = 2;
             autoNext();
         } else if ((game[0][2] == i) && (game[1][2] == 0) && (game[2][2] == i)) {
-            cell6.setText("O");
+            SingleCell6.setText("O");
             game[1][2] = 2;
             autoNext();
         } else if ((game[0][2] == i) && (game[1][2] == i) && (game[2][2] == 0)) {
-            cell9.setText("O");
+            SingleCell9.setText("O");
             game[2][2] = 2;
             autoNext();
         } else if ((game[0][0] == 0) && (game[1][1] == i) && (game[2][2] == i)) {
-            cell1.setText("O");
+            SingleCell1.setText("O");
             game[0][0] = 2;
             autoNext();
         } else if ((game[0][0] == i) && (game[1][1] == 0) && (game[2][2] == i)) {
-            cell5.setText("O");
+            SingleCell5.setText("O");
             game[1][1] = 2;
             autoNext();
         } else if ((game[0][0] == i) && (game[1][1] == i) && (game[2][2] == 0)) {
-            cell9.setText("O");
+            SingleCell9.setText("O");
             game[2][2] = 2;
             autoNext();
         } else if ((game[0][2] == 0) && (game[1][1] == i) && (game[2][0] == i)) {
-            cell3.setText("O");
+            SingleCell3.setText("O");
             game[0][2] = 2;
             autoNext();
         } else if ((game[0][2] == i) && (game[1][1] == 0) && (game[2][0] == i)) {
-            cell5.setText("O");
+            SingleCell5.setText("O");
             game[1][1] = 2;
             autoNext();
         } else if ((game[0][2] == i) && (game[1][1] == i) && (game[2][0] == 0)) {
-            cell7.setText("O");
+            SingleCell7.setText("O");
             game[2][0] = 2;
             autoNext();
         } else {
