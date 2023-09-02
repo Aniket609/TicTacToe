@@ -1,12 +1,17 @@
 package com.aniketchatterjee.tictactoe;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import java.util.Random;
+import android.util.Log;
+
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import static android.content.ContentValues.TAG;
 
 public class SinglePlayer extends AppCompatActivity {
     int[][] game = new int[][]{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
@@ -62,7 +67,10 @@ public class SinglePlayer extends AppCompatActivity {
                 if (game[0][0] == 0) {
                     game[0][0] = 1;
                     SingleCell1.setText("X");
+                    Log.d(TAG, "Cell 1 processed sucessfully");
                     next();
+
+
                 }
             }
         });
@@ -72,7 +80,9 @@ public class SinglePlayer extends AppCompatActivity {
                 if (game[0][1] == 0) {
                     game[0][1] = 1;
                     SingleCell2.setText("X");
+                    Log.d(TAG, "Cell 2 processed sucessfully");
                     next();
+
                 }
             }
         });
@@ -82,7 +92,9 @@ public class SinglePlayer extends AppCompatActivity {
                 if (game[0][2] == 0) {
                     game[0][2] = 1;
                     SingleCell3.setText("X");
+                    Log.d(TAG, "Cell 3 processed sucessfully");
                     next();
+
                 }
             }
         });
@@ -92,7 +104,9 @@ public class SinglePlayer extends AppCompatActivity {
                 if (game[1][0] == 0) {
                     game[1][0] = 1;
                     SingleCell4.setText("X");
+                    Log.d(TAG, "Cell 4 processed sucessfully");
                     next();
+
                 }
             }
         });
@@ -102,7 +116,9 @@ public class SinglePlayer extends AppCompatActivity {
                 if (game[1][1] == 0) {
                     game[1][1] = 1;
                     SingleCell5.setText("X");
+                    Log.d(TAG, "Cell 5 processed sucessfully");
                     next();
+
                 }
             }
         });
@@ -112,7 +128,9 @@ public class SinglePlayer extends AppCompatActivity {
                 if (game[1][2] == 0) {
                     game[1][2] = 1;
                     SingleCell6.setText("X");
+                    Log.d(TAG, "Cell 6 processed sucessfully");
                     next();
+
                 }
             }
         });
@@ -122,7 +140,9 @@ public class SinglePlayer extends AppCompatActivity {
                 if (game[2][0] == 0) {
                     game[2][0] = 1;
                     SingleCell7.setText("X");
+                    Log.d(TAG, "Cell 7 processed sucessfully");
                     next();
+
                 }
 
             }
@@ -133,7 +153,9 @@ public class SinglePlayer extends AppCompatActivity {
                 if (game[2][1] == 0) {
                     game[2][1] = 1;
                     SingleCell8.setText("X");
+                    Log.d(TAG, "Cell 8 processed sucessfully");
                     next();
+
                 }
             }
         });
@@ -143,7 +165,9 @@ public class SinglePlayer extends AppCompatActivity {
                 if (game[2][2] == 0) {
                     game[2][2] = 1;
                     SingleCell9.setText("X");
+                    Log.d(TAG, "Cell 9 processed sucessfully");
                     next();
+
                 }
             }
         });
@@ -207,104 +231,130 @@ public class SinglePlayer extends AppCompatActivity {
             SingleCell1.setText("O");
             game[0][0] = 2;
             autoNext();
+            Log.d(TAG, "Condition 1 processed sucessfully");
         } else if ((game[0][0] == i) && (game[0][1] == 0) && (game[0][2] == i)) {
             SingleCell2.setText("O");
             game[0][1] = 2;
             autoNext();
+            Log.d(TAG, "Condition 2 processed sucessfully");
         } else if ((game[0][0] == i) && (game[0][1] == i) && (game[0][2] == 0)) {
             SingleCell3.setText("O");
             game[0][2] = 2;
             autoNext();
+            Log.d(TAG, "Condition 3 processed sucessfully");
         } else if ((game[1][0] == 0) && (game[1][1] == i) && (game[1][2] == i)) {
             SingleCell4.setText("O");
             game[1][0] = 2;
             autoNext();
+            Log.d(TAG, "Condition 4 processed sucessfully");
         } else if ((game[1][0] == i) && (game[1][1] == 0) && (game[1][2] == i)) {
             SingleCell5.setText("O");
             game[1][1] = 2;
             autoNext();
+            Log.d(TAG, "Condition 5 processed sucessfully");
         } else if ((game[1][0] == i) && (game[1][1] == i) && (game[1][2] == 0)) {
             SingleCell6.setText("O");
             game[1][2] = 2;
             autoNext();
+            Log.d(TAG, "Condition 6 processed sucessfully");
         } else if ((game[2][0] == 0) && (game[2][1] == i) && (game[2][2] == i)) {
             SingleCell7.setText("O");
             game[2][0] = 2;
             autoNext();
+            Log.d(TAG, "Condition 7 processed sucessfully");
         } else if ((game[2][0] == i) && (game[2][1] == 0) && (game[2][2] == i)) {
             SingleCell8.setText("O");
             game[2][1] = 2;
             autoNext();
+            Log.d(TAG, "Condition 8 processed sucessfully");
         } else if ((game[2][0] == i) && (game[2][1] == i) && (game[2][2] == 0)) {
             SingleCell9.setText("O");
             game[2][2] = 2;
             autoNext();
+            Log.d(TAG, "Condition 9 processed sucessfully");
         } else if ((game[0][0] == 0) && (game[1][0] == i) && (game[2][0] == i)) {
             SingleCell1.setText("O");
             game[0][0] = 2;
             autoNext();
+            Log.d(TAG, "Condition 10 processed sucessfully");
         } else if ((game[0][0] == i) && (game[1][0] == 0) && (game[2][0] == i)) {
             SingleCell4.setText("O");
             game[1][0] = 2;
             autoNext();
+            Log.d(TAG, "Condition 11 processed sucessfully");
         } else if ((game[0][0] == i) && (game[1][0] == i) && (game[2][0] == 0)) {
             SingleCell7.setText("O");
             game[2][0] = 2;
             autoNext();
+            Log.d(TAG, "Condition 12 processed sucessfully");
         } else if ((game[0][1] == 0) && (game[1][1] == i) && (game[2][1] == i)) {
             SingleCell2.setText("O");
             game[0][1] = 2;
             autoNext();
+            Log.d(TAG, "Condition 13 processed sucessfully");
         } else if ((game[0][1] == i) && (game[1][1] == 0) && (game[2][1] == i)) {
             SingleCell5.setText("O");
             game[1][1] = 2;
             autoNext();
+            Log.d(TAG, "Condition 14 processed sucessfully");
         } else if ((game[0][1] == i) && (game[1][1] == i) && (game[2][1] == 0)) {
             SingleCell8.setText("O");
             game[2][1] = 2;
             autoNext();
+            Log.d(TAG, "Condition 15 processed sucessfully");
         } else if ((game[0][2] == 0) && (game[1][2] == i) && (game[2][2] == i)) {
             SingleCell3.setText("O");
             game[0][2] = 2;
             autoNext();
+            Log.d(TAG, "Condition 16 processed sucessfully");
         } else if ((game[0][2] == i) && (game[1][2] == 0) && (game[2][2] == i)) {
             SingleCell6.setText("O");
             game[1][2] = 2;
             autoNext();
+            Log.d(TAG, "Condition 17 processed sucessfully");
         } else if ((game[0][2] == i) && (game[1][2] == i) && (game[2][2] == 0)) {
             SingleCell9.setText("O");
             game[2][2] = 2;
             autoNext();
+            Log.d(TAG, "Condition 18 processed sucessfully");
         } else if ((game[0][0] == 0) && (game[1][1] == i) && (game[2][2] == i)) {
             SingleCell1.setText("O");
             game[0][0] = 2;
             autoNext();
+            Log.d(TAG, "Condition 19 processed sucessfully");
         } else if ((game[0][0] == i) && (game[1][1] == 0) && (game[2][2] == i)) {
             SingleCell5.setText("O");
             game[1][1] = 2;
             autoNext();
+            Log.d(TAG, "Condition 20 processed sucessfully");
         } else if ((game[0][0] == i) && (game[1][1] == i) && (game[2][2] == 0)) {
             SingleCell9.setText("O");
             game[2][2] = 2;
             autoNext();
+            Log.d(TAG, "Condition 21 processed sucessfully");
         } else if ((game[0][2] == 0) && (game[1][1] == i) && (game[2][0] == i)) {
             SingleCell3.setText("O");
             game[0][2] = 2;
             autoNext();
+            Log.d(TAG, "Condition 22 processed sucessfully");
         } else if ((game[0][2] == i) && (game[1][1] == 0) && (game[2][0] == i)) {
             SingleCell5.setText("O");
             game[1][1] = 2;
             autoNext();
+            Log.d(TAG, "Condition 23 processed sucessfully");
         } else if ((game[0][2] == i) && (game[1][1] == i) && (game[2][0] == 0)) {
             SingleCell7.setText("O");
             game[2][0] = 2;
             autoNext();
+            Log.d(TAG, "Condition 24 processed sucessfully");
         } else {
             if (i == 1) {
                 randPos();
                 autoNext();
+                Log.d(TAG, "random move processed sucessfully");
             } else {
                 autoplay(1);
+                Log.d(TAG, "No winning move,Checking for player possibility");
             }
         }
     }
