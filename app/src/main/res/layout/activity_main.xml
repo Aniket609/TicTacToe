@@ -20,9 +20,9 @@
     <TextView
         android:id="@+id/guide"
         android:layout_width="370dp"
-        android:layout_height="340dp"
+        android:layout_height="350dp"
         android:layout_marginTop="16dp"
-        android:text='1. Player1 is assigned "X".\n 2. Player2 is assigned "0". \n 3. One box can be filled only once. \n 4. Each player gets their turns in alternate. \n 5. First player to get 3 cells of his/her sign horizontally/vertically/diagonally wins \n 6. You can assign player names below \n 7. For single player, only Player1 name(if any) will be used,'
+        android:text='1. Player1 is assigned "X".\n 2. Player2 is assigned "0". \n 3. One box can be filled only once. \n 4. Each player gets their turns in alternate. \n 5. First player to get 3 cells of his/her sign horizontally/vertically/diagonally wins \n 6. You can assign player names below \n 7. For single player, only Player1 name(if any) will be used.'
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
