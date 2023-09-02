@@ -14,19 +14,28 @@ public class Game extends AppCompatActivity {
     int count=0;
     int mode;
     TextView turn;
+    TextView cell1;
+    TextView cell2;
+    TextView cell3;
+    TextView cell4;
+    TextView cell5;
+    TextView cell6;
+    TextView cell7;
+    TextView cell8;
+    TextView cell9;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        TextView cell1 = findViewById(R.id.cell_1);
-        TextView cell2 = findViewById(R.id.cell_2);
-        TextView cell3 = findViewById(R.id.cell_3);
-        TextView cell4 = findViewById(R.id.cell_4);
-        TextView cell5 = findViewById(R.id.cell_5);
-        TextView cell6 = findViewById(R.id.cell_6);
-        TextView cell7 = findViewById(R.id.cell_7);
-        TextView cell8 = findViewById(R.id.cell_8);
-        TextView cell9 = findViewById(R.id.cell_9);
+        cell1 = findViewById(R.id.cell_1);
+        cell2 = findViewById(R.id.cell_2);
+        cell3 = findViewById(R.id.cell_3);
+        cell4 = findViewById(R.id.cell_4);
+        cell5 = findViewById(R.id.cell_5);
+        cell6 = findViewById(R.id.cell_6);
+        cell7 = findViewById(R.id.cell_7);
+        cell8 = findViewById(R.id.cell_8);
+        cell9 = findViewById(R.id.cell_9);
         turn = findViewById(R.id.turn);
         player1 = getIntent().getStringExtra("p1");
         player2 = getIntent().getStringExtra("p2");
@@ -124,12 +133,15 @@ public class Game extends AppCompatActivity {
                 ((game[0][2] != 0) && (game[0][2] == game[1][1]) && (game[0][2] == game[2][0]))){
             if ((count-mode) % 2 != 0) {
                 openScreen("player1");
+                resetGameState();
             } else {
                 openScreen("player2");
+                resetGameState();
             }
         }
         else if (count>8){
             openScreen("draw");
+            resetGameState();
         }
 
     }
@@ -162,5 +174,24 @@ public class Game extends AppCompatActivity {
     }
     public boolean playing(){
         return (count-mode)%2!=0;
+    }
+    public void resetGameState(){
+        cell1.setText("");
+        cell2.setText("");
+        cell3.setText("");
+        cell4.setText("");
+        cell5.setText("");
+        cell6.setText("");
+        cell7.setText("");
+        cell8.setText("");
+        cell9.setText("");
+        turn.setText("");
+        player1 ="";
+        player2="";
+        count=0;
+        mode=0;
+        game = null;
+
+
     }
 }

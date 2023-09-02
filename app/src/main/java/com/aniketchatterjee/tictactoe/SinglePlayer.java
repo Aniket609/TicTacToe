@@ -158,12 +158,15 @@ public class SinglePlayer extends AppCompatActivity {
                 ((game[0][2] != 0) && (game[0][2] == game[1][1]) && (game[0][2] == game[2][0]))) {
             if ((count - mode) % 2 != 0) {
                 openScreen("player1");
+                resetGameState();
             } else {
                 openScreen("player2");
+                resetGameState();
             }
             return false;
         } else if (count > 8) {
             openScreen("draw");
+            resetGameState();
             return false;
         } else {
             return true;
@@ -353,5 +356,24 @@ public class SinglePlayer extends AppCompatActivity {
             winner();
         }
         turn();
+    }
+    public void resetGameState(){
+        SingleCell1.setText("");
+        SingleCell2.setText("");
+        SingleCell3.setText("");
+        SingleCell4.setText("");
+        SingleCell5.setText("");
+        SingleCell6.setText("");
+        SingleCell7.setText("");
+        SingleCell8.setText("");
+        SingleCell9.setText("");
+        turn.setText("");
+        player1 ="";
+        player2="";
+        count=0;
+        mode=0;
+        game = null;
+        pos = null;
+
     }
 }
