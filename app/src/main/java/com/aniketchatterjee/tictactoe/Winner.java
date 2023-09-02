@@ -1,14 +1,15 @@
 package com.aniketchatterjee.tictactoe;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Winner extends AppCompatActivity {
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class Winner extends AppCompatActivity {
         String player2 = getIntent().getStringExtra("p2");
         String winner = getIntent().getStringExtra("result");
 
+        assert winner != null;
         if (winner.equals("player1")){
             result.setText((player1 + " has won the game"));
         }
@@ -34,55 +36,43 @@ public class Winner extends AppCompatActivity {
             result.setText(("It is a Draw!"));
         }
 
-        multiP1First.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent newGame = new Intent(Winner.this,Game.class);
-                newGame.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                Bundle players = new Bundle();
-                players.putString("p1", player1);
-                players.putString("p2", player2);
-                players.putString("mode", "1st");
-                newGame.putExtras(players);
-                startActivity(newGame);
-            }
+        multiP1First.setOnClickListener(view -> {
+            Intent newGame = new Intent(Winner.this,Game.class);
+            newGame.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            Bundle players = new Bundle();
+            players.putString("p1", player1);
+            players.putString("p2", player2);
+            players.putString("mode", "1st");
+            newGame.putExtras(players);
+            startActivity(newGame);
         });
-        multiP2First.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent newGame = new Intent(Winner.this,Game.class);
-                newGame.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                Bundle players = new Bundle();
-                players.putString("p1", player1);
-                players.putString("p2", player2);
-                players.putString("mode", "2nd");
-                newGame.putExtras(players);
-                startActivity(newGame);
-            }
+        multiP2First.setOnClickListener(view -> {
+            Intent newGame = new Intent(Winner.this,Game.class);
+            newGame.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            Bundle players = new Bundle();
+            players.putString("p1", player1);
+            players.putString("p2", player2);
+            players.putString("mode", "2nd");
+            newGame.putExtras(players);
+            startActivity(newGame);
         });
-        singlePlay1st.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent newGame = new Intent(Winner.this,SinglePlayer.class);
-                newGame.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                Bundle players = new Bundle();
-                players.putString("p1", player1);
-                players.putString("mode", "1st");
-                newGame.putExtras(players);
-                startActivity(newGame);
-            }
+        singlePlay1st.setOnClickListener(view -> {
+            Intent newGame = new Intent(Winner.this,SinglePlayer.class);
+            newGame.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            Bundle players = new Bundle();
+            players.putString("p1", player1);
+            players.putString("mode", "1st");
+            newGame.putExtras(players);
+            startActivity(newGame);
         });
-        singlePlay2nd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent newGame = new Intent(Winner.this, SinglePlayer.class);
-                newGame.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                Bundle players = new Bundle();
-                players.putString("p1", player1);
-                players.putString("mode", "2nd");
-                newGame.putExtras(players);
-                startActivity(newGame);
-            }
+        singlePlay2nd.setOnClickListener(view -> {
+            Intent newGame = new Intent(Winner.this, SinglePlayer.class);
+            newGame.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            Bundle players = new Bundle();
+            players.putString("p1", player1);
+            players.putString("mode", "2nd");
+            newGame.putExtras(players);
+            startActivity(newGame);
         });
     }
 }

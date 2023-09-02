@@ -1,9 +1,8 @@
 package com.aniketchatterjee.tictactoe;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,109 +31,83 @@ public class Game extends AppCompatActivity {
         player1 = getIntent().getStringExtra("p1");
         player2 = getIntent().getStringExtra("p2");
         String m = getIntent().getStringExtra("mode");
+        assert m != null;
         mode = m.equals("1st")?0:1;
         if (player1.isEmpty()) player1 = "Player1";
         if (player2.isEmpty()) player2 = "Player2";
         turn();
 
-        cell1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[0][0]==0){
-                    boolean turn = playing();
-                    game [0][0] = turn?1:2;
-                    cell1.setText( turn?"X":"O");
-                   next();
-                }
+        cell1.setOnClickListener(view -> {
+            if (game[0][0]==0){
+                boolean turn = playing();
+                game [0][0] = turn?1:2;
+                cell1.setText( turn?"X":"O");
+               next();
             }
         });
-        cell2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[0][1]==0){
-                    boolean turn = playing();
-                    game [0][1] = turn?1:2;
-                    cell2.setText( turn?"X":"O");
-                    next();
-                }
+        cell2.setOnClickListener(view -> {
+            if (game[0][1]==0){
+                boolean turn = playing();
+                game [0][1] = turn?1:2;
+                cell2.setText( turn?"X":"O");
+                next();
             }
         });
-        cell3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[0][2]==0){
-                    boolean turn = playing();
-                    game [0][2] = turn?1:2;
-                    cell3.setText( turn?"X":"O");
-                    next();
-                }
+        cell3.setOnClickListener(view -> {
+            if (game[0][2]==0){
+                boolean turn = playing();
+                game [0][2] = turn?1:2;
+                cell3.setText( turn?"X":"O");
+                next();
             }
         });
-        cell4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[1][0]==0){
-                    boolean turn = playing();
-                    game [1][0] = turn?1:2;
-                    cell4.setText( turn?"X":"O");
-                    next();
-                }
+        cell4.setOnClickListener(view -> {
+            if (game[1][0]==0){
+                boolean turn = playing();
+                game [1][0] = turn?1:2;
+                cell4.setText( turn?"X":"O");
+                next();
             }
         });
-        cell5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[1][1]==0){
-                    boolean turn = playing();
-                    game [1][1] = turn?1:2;
-                    cell5.setText( turn?"X":"O");
-                    next();
-                }
+        cell5.setOnClickListener(view -> {
+            if (game[1][1]==0){
+                boolean turn = playing();
+                game [1][1] = turn?1:2;
+                cell5.setText( turn?"X":"O");
+                next();
             }
         });
-        cell6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[1][2]==0){
-                    boolean turn = playing();
-                    game [1][2] = turn?1:2;
-                    cell6.setText( turn?"X":"O");
-                    next();
-                }
+        cell6.setOnClickListener(view -> {
+            if (game[1][2]==0){
+                boolean turn = playing();
+                game [1][2] = turn?1:2;
+                cell6.setText( turn?"X":"O");
+                next();
             }
         });
-        cell7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               if(game[2][0]==0){
-                   boolean turn = playing();
-                   game [2][0] = turn?1:2;
-                   cell7.setText( turn?"X":"O");
-                   next();
-               }
+        cell7.setOnClickListener(view -> {
+           if(game[2][0]==0){
+               boolean turn = playing();
+               game [2][0] = turn?1:2;
+               cell7.setText( turn?"X":"O");
+               next();
+           }
+        });
+        cell8.setOnClickListener(view -> {
+            if (game[2][1]==0){
+                boolean turn = playing();
+                game [2][1] = turn?1:2;
+                cell8.setText( turn?"X":"O");
+                next();
             }
         });
-        cell8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[2][1]==0){
-                    boolean turn = playing();
-                    game [2][1] = turn?1:2;
-                    cell8.setText( turn?"X":"O");
-                    next();
-                }
-            }
-        });
-        cell9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[2][2]==0){
-                    boolean turn = playing();
-                    game [2][2] = turn?1:2;
-                    cell9.setText( turn?"X":"O");
-                    next();
-                    cell9.setOnClickListener(null);
-                }
+        cell9.setOnClickListener(view -> {
+            if (game[2][2]==0){
+                boolean turn = playing();
+                game [2][2] = turn?1:2;
+                cell9.setText( turn?"X":"O");
+                next();
+                cell9.setOnClickListener(null);
             }
         });
 
@@ -160,6 +133,7 @@ public class Game extends AppCompatActivity {
         }
 
     }
+    @SuppressLint("SetTextI18n")
     public void turn(){
         if ((count-mode)%2!=0){
             turn.setText(("It's "+ player2+"'s turn"));
