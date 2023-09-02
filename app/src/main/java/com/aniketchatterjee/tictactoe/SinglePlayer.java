@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class SinglePlayer extends AppCompatActivity {
     TextView SingleCell8;
     TextView SingleCell9;
     boolean status = true;
+    Handler handler = new Handler();
 
 
     @SuppressLint("SetTextI18n")
@@ -157,16 +159,23 @@ public class SinglePlayer extends AppCompatActivity {
                 ((game[0][0] != 0) && (game[0][0] == game[1][1]) && (game[0][0] == game[2][2])) ||
                 ((game[0][2] != 0) && (game[0][2] == game[1][1]) && (game[0][2] == game[2][0]))) {
             if ((count - mode) % 2 != 0) {
-                openScreen("player1");
-                resetGameState();
+                handler.postDelayed(() -> {
+                    openScreen("player1");
+                    resetGameState();
+                }, 1000);
+
             } else {
-                openScreen("player2");
-                resetGameState();
+                handler.postDelayed(() -> {
+                    openScreen("player2");
+                    resetGameState();
+                }, 1000);
             }
             return false;
         } else if (count > 8) {
-            openScreen("draw");
-            resetGameState();
+            handler.postDelayed(() -> {
+                openScreen("draw");
+                resetGameState();
+            }, 1000);
             return false;
         } else {
             return true;
@@ -368,8 +377,6 @@ public class SinglePlayer extends AppCompatActivity {
         SingleCell8.setText("");
         SingleCell9.setText("");
         turn.setText("");
-        player1 ="";
-        player2="";
         count=0;
         mode=0;
         game = null;

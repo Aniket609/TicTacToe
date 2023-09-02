@@ -3,6 +3,7 @@ package com.aniketchatterjee.tictactoe;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class Game extends AppCompatActivity {
     TextView cell7;
     TextView cell8;
     TextView cell9;
+    Handler handler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,16 +134,22 @@ public class Game extends AppCompatActivity {
                 ((game[0][0] != 0) && (game[0][0] == game[1][1]) && (game[0][0] == game[2][2])) ||
                 ((game[0][2] != 0) && (game[0][2] == game[1][1]) && (game[0][2] == game[2][0]))){
             if ((count-mode) % 2 != 0) {
-                openScreen("player1");
-                resetGameState();
+                handler.postDelayed(() -> {
+                    openScreen("player1");
+                    resetGameState();
+                }, 1000);
             } else {
-                openScreen("player2");
-                resetGameState();
+                handler.postDelayed(() -> {
+                    openScreen("player2");
+                    resetGameState();
+                }, 1000);
             }
         }
         else if (count>8){
-            openScreen("draw");
-            resetGameState();
+            handler.postDelayed(() -> {
+                openScreen("draw");
+                resetGameState();
+            }, 1000);
         }
 
     }
@@ -186,8 +194,6 @@ public class Game extends AppCompatActivity {
         cell8.setText("");
         cell9.setText("");
         turn.setText("");
-        player1 ="";
-        player2="";
         count=0;
         mode=0;
         game = null;
