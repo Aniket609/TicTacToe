@@ -1,17 +1,17 @@
 package com.aniketchatterjee.tictactoe;
 
-import android.content.Intent;
-import android.nfc.Tag;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import java.util.Random;
-import android.util.Log;
+import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static android.content.ContentValues.TAG;
+import java.util.Objects;
+import java.util.Random;
 
 public class SinglePlayer extends AppCompatActivity {
     int[][] game = new int[][]{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
@@ -33,6 +33,7 @@ public class SinglePlayer extends AppCompatActivity {
     boolean status = true;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,7 @@ public class SinglePlayer extends AppCompatActivity {
         turn = findViewById(R.id.turn);
         player1 = getIntent().getStringExtra("p1");
         player2 = "System";
-        mode = getIntent().getStringExtra("mode").equals("1st") ? 0 : 1;
+        mode = Objects.requireNonNull(getIntent().getStringExtra("mode")).equals("1st") ? 0 : 1;
         if (mode == 0) {
             turn.setText(("It's " + player1 + "'s turn"));
         } else {
@@ -61,114 +62,87 @@ public class SinglePlayer extends AppCompatActivity {
         if (mode == 1) {
             autoplay(2);
         }
-        SingleCell1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[0][0] == 0) {
-                    game[0][0] = 1;
-                    SingleCell1.setText("X");
-                    Log.d(TAG, "Cell 1 processed sucessfully");
-                    next();
+        SingleCell1.setOnClickListener(view -> {
+            if (game[0][0] == 0) {
+                game[0][0] = 1;
+                SingleCell1.setText("X");
+                Log.d(TAG, "Cell 1 processed sucessfully");
+                next();
 
-
-                }
-            }
-        });
-        SingleCell2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[0][1] == 0) {
-                    game[0][1] = 1;
-                    SingleCell2.setText("X");
-                    Log.d(TAG, "Cell 2 processed sucessfully");
-                    next();
-
-                }
-            }
-        });
-        SingleCell3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[0][2] == 0) {
-                    game[0][2] = 1;
-                    SingleCell3.setText("X");
-                    Log.d(TAG, "Cell 3 processed sucessfully");
-                    next();
-
-                }
-            }
-        });
-        SingleCell4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[1][0] == 0) {
-                    game[1][0] = 1;
-                    SingleCell4.setText("X");
-                    Log.d(TAG, "Cell 4 processed sucessfully");
-                    next();
-
-                }
-            }
-        });
-        SingleCell5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[1][1] == 0) {
-                    game[1][1] = 1;
-                    SingleCell5.setText("X");
-                    Log.d(TAG, "Cell 5 processed sucessfully");
-                    next();
-
-                }
-            }
-        });
-        SingleCell6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[1][2] == 0) {
-                    game[1][2] = 1;
-                    SingleCell6.setText("X");
-                    Log.d(TAG, "Cell 6 processed sucessfully");
-                    next();
-
-                }
-            }
-        });
-        SingleCell7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[2][0] == 0) {
-                    game[2][0] = 1;
-                    SingleCell7.setText("X");
-                    Log.d(TAG, "Cell 7 processed sucessfully");
-                    next();
-
-                }
 
             }
         });
-        SingleCell8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[2][1] == 0) {
-                    game[2][1] = 1;
-                    SingleCell8.setText("X");
-                    Log.d(TAG, "Cell 8 processed sucessfully");
-                    next();
+        SingleCell2.setOnClickListener(view -> {
+            if (game[0][1] == 0) {
+                game[0][1] = 1;
+                SingleCell2.setText("X");
+                Log.d(TAG, "Cell 2 processed sucessfully");
+                next();
 
-                }
             }
         });
-        SingleCell9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (game[2][2] == 0) {
-                    game[2][2] = 1;
-                    SingleCell9.setText("X");
-                    Log.d(TAG, "Cell 9 processed sucessfully");
-                    next();
+        SingleCell3.setOnClickListener(view -> {
+            if (game[0][2] == 0) {
+                game[0][2] = 1;
+                SingleCell3.setText("X");
+                Log.d(TAG, "Cell 3 processed sucessfully");
+                next();
 
-                }
+            }
+        });
+        SingleCell4.setOnClickListener(view -> {
+            if (game[1][0] == 0) {
+                game[1][0] = 1;
+                SingleCell4.setText("X");
+                Log.d(TAG, "Cell 4 processed sucessfully");
+                next();
+
+            }
+        });
+        SingleCell5.setOnClickListener(view -> {
+            if (game[1][1] == 0) {
+                game[1][1] = 1;
+                SingleCell5.setText("X");
+                Log.d(TAG, "Cell 5 processed sucessfully");
+                next();
+
+            }
+        });
+        SingleCell6.setOnClickListener(view -> {
+            if (game[1][2] == 0) {
+                game[1][2] = 1;
+                SingleCell6.setText("X");
+                Log.d(TAG, "Cell 6 processed sucessfully");
+                next();
+
+            }
+        });
+        SingleCell7.setOnClickListener(view -> {
+            if (game[2][0] == 0) {
+                game[2][0] = 1;
+                SingleCell7.setText("X");
+                Log.d(TAG, "Cell 7 processed sucessfully");
+                next();
+
+            }
+
+        });
+        SingleCell8.setOnClickListener(view -> {
+            if (game[2][1] == 0) {
+                game[2][1] = 1;
+                SingleCell8.setText("X");
+                Log.d(TAG, "Cell 8 processed sucessfully");
+                next();
+
+            }
+        });
+        SingleCell9.setOnClickListener(view -> {
+            if (game[2][2] == 0) {
+                game[2][2] = 1;
+                SingleCell9.setText("X");
+                Log.d(TAG, "Cell 9 processed sucessfully");
+                next();
+
             }
         });
     }
@@ -196,6 +170,7 @@ public class SinglePlayer extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void turn() {
         if ((count - mode) % 2 != 0) {
             turn.setText(("It's " + player2 + "'s turn"));
